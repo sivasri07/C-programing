@@ -1,0 +1,30 @@
+#include <stdio.h>
+int main() 
+{
+int tickets;
+char refreshment, coupon, circle;
+float cost_per_ticket, total_cost;
+scanf("%d %c %c %c", &tickets, &refreshment, &coupon, &circle);
+if (tickets < 5 || tickets > 40) {
+printf("Minimum of 5 and Maximum of 40 Tickets\n");
+return 0;
+}
+if (circle == 'k')
+cost_per_ticket = 75.0;
+else if (circle == 'q')
+cost_per_ticket = 150.0;
+else 
+{
+printf("Invalid Input\n");
+return 0;
+}
+total_cost = cost_per_ticket * tickets;
+if (tickets > 20)
+total_cost = total_cost * 0.9;
+if (coupon == 'y')
+total_cost = total_cost * 0.98;
+if (refreshment == 'y')
+total_cost += 50 * tickets;
+printf("Ticket cost:%.2f\n", total_cost);
+return 0;
+}
